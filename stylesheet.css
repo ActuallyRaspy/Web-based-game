@@ -1,0 +1,65 @@
+* { /* To remove all preset margins and paddings. */
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #101f26;
+}
+
+.start, .startContainer { /* Centers divs vertically and horizontally.   */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start button{
+    padding: 15px 50px;
+    background-color: rgb(128, 255, 128);
+    border: 2px solid rgb(87, 187, 87);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 500;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.startContainer{
+    width: 50%;
+    height: 25%;
+    background-color: #193540;
+    padding: 15px;
+    border: 2px solid #e4d7aa;
+    font-weight: 600;
+    
+}
+
+.startInnerContainer{
+    position: relative; /* Centers a child to its parent's relative position. In this case .startContainer */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 75%;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.startHeader{
+    background-color: #e4d7aa;
+    padding-bottom: px;
+}
+
+.startBody{
+    background-color: #e4d7aa;
+}   
+
+.startButtons{
+    background-color: #193540;
+}
