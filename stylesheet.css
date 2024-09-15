@@ -1,6 +1,13 @@
-* { /* To remove all preset margins and paddings. */
+* { /* To remove all preset margins and paddings. Global settings.*/
     margin: 0;
     padding: 0;
+    font-family: DM_Sans;
+    
+}
+
+@font-face { /* Imports a new font from a file.*/
+    font-family: DM_Sans;
+    src: url(fonts//DM_Sans/DMSans-VariableFont_opsz\,wght.ttf);
 }
 
 body{
@@ -20,8 +27,6 @@ body{
     border: 2px solid rgb(87, 187, 87);
     border-radius: 5px;
     cursor: pointer;
-    font-size: large;
-    font-weight: 500;
 }
 
 ul{
@@ -34,8 +39,14 @@ ul{
     background-color: #193540;
     padding: 15px;
     border: 2px solid #e4d7aa;
-    font-weight: 600;
-    
+    font-weight: 500;
+    min-width: 482px;/* Sets the minimum width. If the screen is smaller, the div and its children will not smush together*/
+}
+
+.startContainer hr{
+    background-color:#193540;
+    border: 1px solid #101f26;
+    border-radius: 100%;
 }
 
 .startInnerContainer{
@@ -43,7 +54,7 @@ ul{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 75%;
     height: 75%;
     text-align: center;
     display:flex;
@@ -51,15 +62,40 @@ ul{
     justify-content: center;
 }
 
-.startHeader{
+.startInnerContainerWhite{
     background-color: #e4d7aa;
-    padding-bottom: px;
+    padding: 10px;
+}
+
+.startHeader{
+    margin-bottom: 5px;
 }
 
 .startBody{
-    background-color: #e4d7aa;
+    margin: 5px 0px;
 }   
 
 .startButtons{
-    background-color: #193540;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.startButtons button{
+    padding: 10px 25px;
+    font-weight: bold;
+    border: none;
+    margin-left: 20px;
+    background-color: #e4d7aa;
+    color:#101f26;
+    cursor: pointer;
+    border: 2px solid rgba(0,0,0,0); 
+    /* Transparent border. Makes it so that when hovered a new border isn't created and therefore increasing it's size, making the div "jump" */
+}
+
+.startButtons button:hover{
+    background-color:#193540;
+    border: 2px solid #e4d7aa;
+    color: #e4d7aa;
 }
