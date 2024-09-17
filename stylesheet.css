@@ -14,19 +14,47 @@ body{
     background-color: #101f26;
 }
 
-.start, .startContainer { /* Centers divs vertically and horizontally.   */
+button{
+    padding: 15px 35px;
+    background-color: #e4d7aa;
+    border: 2px solid #e4d7aa;
+    border-radius: 0px;
+    cursor: pointer;
+    color: #193540;
+    font-weight: 900;
+    transition: 0.105s;
+}
+
+button:hover{
+    background-color: #101f26;
+    color:#e4d7aa;
+}
+
+.start, .startContainer, .scoreboardContainer { /* Centers divs vertically and horizontally.   */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+.start, .startContainer{
+    display: none; /* Temporarily disable divs for dev purposes. remove later---------------------------------------*/
+}
+
 .start button{
     padding: 15px 50px;
-    background-color: rgb(128, 255, 128);
-    border: 2px solid rgb(87, 187, 87);
-    border-radius: 5px;
+    background-color: #e4d7aa;
+    border: 2px solid #e4d7aa;
+    border-radius: 0px;
     cursor: pointer;
+    color: #193540;
+    font-weight: 900;
+    transition: 0.105s;
+}
+
+.start button:hover{
+    background-color: #101f26;
+    color:#e4d7aa;
 }
 
 ul{
@@ -91,6 +119,7 @@ ul{
     color:#101f26;
     cursor: pointer;
     border: 2px solid rgba(0,0,0,0); 
+    transition: 0.105s;
     /* Transparent border. Makes it so that when hovered a new border isn't created and therefore increasing it's size, making the div "jump" */
 }
 
@@ -98,4 +127,46 @@ ul{
     background-color:#193540;
     border: 2px solid #e4d7aa;
     color: #e4d7aa;
+}
+
+.scoreboardContainer{
+    width: 50%;
+    height: 35%;
+    background-color: #193540;
+    padding: 15px;
+    border: 2px solid #e4d7aa;
+    font-weight: 500;
+    min-width: 482px;/* Sets the minimum width. If the screen is smaller, the div and its children will not smush together*/
+    min-height: 250px;
+}
+
+.scoreboardInnerContainer{
+    position: relative; /* Centers a child to its parent's relative position. In this case .startContainer */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 75%;
+    text-align: center;
+    background-color: #e4d7aa;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.scoreboardHeader{
+    padding-top: 5px;
+}
+
+.scoreboardContent{
+    margin:8px;
+    height:75%;
+    overflow-y: scroll;
+    border: 1px solid #101f26
+}
+
+.scoreboardContent li{
+    border-bottom: 1px solid #101f26;
+    margin-top: 5px;
 }
