@@ -37,25 +37,29 @@ ul{
 }
 
 /* Temporarily disable divs for dev purposes. remove later---------------------------------------*/
-.start, .startContainer, .scoreboardContainer{
-    display: ;
+#start, #startContainer, #scoreboardContainer{
+    display: none;
+}
+
+#start{
+    display:block;
 }
 /* Temporarily disable divs for dev purposes. remove later---------------------------------------*/
 
 
-.start, .startContainer, .scoreboardContainer { /* Centers divs vertically and horizontally.   */
+#start, #startContainer, #scoreboardContainer { /* Centers divs vertically and horizontally.   */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.start button:hover{
+#start button:hover{
     background-color: #101f26; /* unclear if this will be kept at all. probably not*/
 }
 
 /*---------------------Start menu---------------------*/
-.startContainer{
+#startContainer{
     width: 50%;
     height: 25%;
     background-color: #193540;
@@ -66,7 +70,7 @@ ul{
     min-width: 561px;/* Sets the minimum width. If the screen is smaller, the div and its children will not smush together*/
 }
 
-.startContainer hr{
+#startContainer hr{
     background-color:#193540;
     border: 1px solid #101f26;
     border-radius: 100%;
@@ -108,7 +112,7 @@ ul{
 
 /*---------------------Scoreboard---------------------*/
 
-.scoreboardContainer{
+#scoreboardContainer{
     width: 50%;
     height: 35%;
     background-color: #193540;
