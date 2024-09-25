@@ -25,16 +25,18 @@ body {
   margin: 0 auto;
 }
 
-h2 {
+.login-heading {
   color: #193540;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 20px;
   margin-top: 0px;
   border-bottom: 1px solid #193540;
   padding-bottom: 5px;
+  text-align: center;
 }
 
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -73,7 +75,7 @@ input {
   border: 2px solid #193540;
   cursor: pointer;
   width: 120px;
-  margin-top: 20px ;
+  margin-top: 10px ;
 }
 
 .login-btn:hover {
@@ -81,6 +83,127 @@ input {
   color: #e4d7aa;
   border: 2px solid #e4d7aa;
 }
+
+.menu-box {
+  background-color: #e4d7aa;
+  padding: 20px;
+  border: 2px solid #193540;
+  text-align: center;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-btn {
+  background-color: #e4d7aa;
+  color: #193540;
+  padding: 10px 20px;
+  border: 2px solid #193540;
+  cursor: pointer;
+  width: 120px;
+  margin: 5px auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.menu-btn:hover {
+  background-color: #193540;
+  color: #e4d7aa;
+  border: 2px solid #e4d7aa;
+}
+
+.menu-heading {
+  color: #193540;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 24px;
+  border-bottom: 1px solid #193540;
+}
+
+.game-container {
+  background-color: #193540;
+  padding: 30px;
+  border: 2px solid #e4d7aa;
+  text-align: center;
+  width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.score-timer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color:#e4d7aa;
+ }
+
+.scoreboard, .timer {
+  font-size: 1,2em;
+  color: #193540;
+  padding: 10px;
+  border: 2px solid #e4d7aa;
+  border-radius: 5px;
+}
+
+.question-area {
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #e4d7aa;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e4d7aa;
+  padding-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.answer-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.answer-btn {
+ background-color: #e4d7aa;
+ color: #193540;
+ padding: 10px;
+ border: 2px solid #193540;
+ cursor: pointer;
+ font-size: 1em;
+}
+
+.answer-btn:hover {
+  background-color: #193540;
+  color: #e4d7aa;
+  
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  border: 2px solid #193540;
+  background-color: #e4d7aa;
+  color: #193540;
+  cursor: pointer;
+  font-size: 16px;
+}
+ button:hover {
+  background-color: #193540;
+  color: #e4d7aa;
+ }
+
 
 
 
