@@ -62,7 +62,12 @@ function startGameLogic() {
     time = 10;
     document.getElementById('score').textContent = score;
     document.getElementById('time').textContent = time;
+
+    document.querySelector('.answer-options').style.display = "flex";
+    document.getElementById('restart-btn').style.display = "none";
+
     loadQuestion();
+    clearInterval(timerInterval);
     startTimer();
 }
 
@@ -91,18 +96,28 @@ function loadQuestion() {
 }
 
 function selectAnswer(answerIndex) {
+    const answerButtons = document.querySelectorAll('.answer-btn');
+    answerButtons.forEach(btn => btn.disabled = true);
     const correctAnswer = questions[currentQuestion].correct;
     if (answerIndex === correctAnswer) {
         score++;
         document.getElementById('score').textContent = score;
     }
+    setTimeout(() => {
     currentQuestion++;
     loadQuestion();
+    answerButtons.forEach(btn => btn.disabled = false);
+    }, 500);
 }
 
 function endGame() {
     clearInterval(timerInterval);
+    document.getElementById('question').textContent = "Game Over!";
+    document.getElementById('question').classList.add('game-over');
+    document.querySelector('.answer-options').style.display = "none";
     alert("Game over! Your score is " + score);
-}
+
+    document.getElementById('restart-btn').style.display = "block";
+  }
 
 document.addEventListener("DOMContentLoaded", startGameLogic);
