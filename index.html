@@ -6,12 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="game.js" defer></script>
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
   </head>
   <body>
+    <!-- Login form -->
+    <div id="loginContainer">
+      <div class="login-box">
+        <h2 class="login-heading">LOGIN</h2>
+        <form>
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+        </form>
+      </div>
+      <div class="buttons">
+        <button type="submit" class="login-btn" onclick="showMenu()" >LOGIN</button>
+      </div>
+    </div>
+    
 
-    <div id="start"><button onclick="showMenu()">Start</button></div>
-
+    <!-- Main menu -->
     <div id="startContainer">
       <div class="startInnerContainer">
         <div class="startInnerContainerWhite">
@@ -26,16 +46,34 @@
             </ul>
           </div>
         </div>
-
-
         <div class="startButtons">
-          <button class="startButtonsExit" onclick="showStart()"><b>EXIT</b></button>
+          <button class="startButtonsExit" onclick="showLogin()"><b>EXIT</b></button>
           <button class="startButtonsScoreboard" onclick="showScoreboard()"><b>SCOREBOARD</b></button>
-          <button class="startButtonsStart"><b>START</b></button>
+          <button class="startButtonsStart" onclick="showGame(), startGameLogic()"><b>START</b></button>
         </div>
       </div>
     </div>
 
+    <!-- Game -->
+    <div id="gameContainer">
+      <div class="score-timer">
+        <div class="scoreboard">Score: <span id="score">0</span></div>
+        <div class="timer">Time: <span id="time">10</span></div>
+      </div>
+      <div class="question-area">
+        <h3 id="question">Frågan visas här</h3>
+      </div>
+      <div class="answer-options">
+        <button class="answer-btn" onclick="selectAnswer(0)">Svar 1</button>
+        <button class="answer-btn" onclick="selectAnswer(1)">Svar 2</button>
+        <button class="answer-btn" onclick="selectAnswer(2)">Svar 3</button>
+        <button class="answer-btn" onclick="selectAnswer(3)">Svar 4</button>
+      </div>
+      <button id="restart-btn" class="menu-btn" style="display:none;" onclick="startGameLogic()">Spela igen</button>
+      <button id="exit-btn" class="menu-btn" style="display:none;" onclick="exitGame()">Exit</button>
+    </div>
+
+    <!-- Scoreboard -->
     <div id="scoreboardContainer">
       <div class="scoreboardInnerContainer">
         <div class="scoreboardHeader"><h2>Scoreboard</h2></div>
@@ -56,7 +94,6 @@
         <button onclick="returnScoreboard()">Return</button>
       </div>
     </div>
-    
 
     <script>
       // document.cookie = "username=Admin; score=2000;";
@@ -67,7 +104,7 @@
       // }
 
       function showMenu(){
-        document.getElementById("start").style.display = "none";
+        document.getElementById("loginContainer").style.display = "none";
         document.getElementById("startContainer").style.display = "block";
         
       }
@@ -82,9 +119,30 @@
         document.getElementById("startContainer").style.display = "block";
       }
 
-      function showStart(){
-        document.getElementById("start").style.display = "block";
+      function showLogin(){
+        document.getElementById("loginContainer").style.display = "block";
         document.getElementById("startContainer").style.display = "none";
+      }
+
+      function showGame(){
+        document.getElementById("gameContainer").style.display = "block";
+        document.getElementById("startContainer").style.display = "none";
+      }
+
+      function exitGame(){
+        document.getElementById("startContainer").style.display = "block";
+        document.getElementById("gameContainer").style.display = "none";
+      }
+
+      function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if(username && password) {
+          window.location.href = "game-menu.html";
+        } else {
+          alert("Please fill in both fields.");
+        }
       }
 
     </script>

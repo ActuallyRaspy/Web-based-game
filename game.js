@@ -59,12 +59,14 @@ const questions = [
 function startGameLogic() {
     score = 0;
     currentQuestion = 0;
-    time = 10;
+    time = 5;
     document.getElementById('score').textContent = score;
     document.getElementById('time').textContent = time;
 
     document.querySelector('.answer-options').style.display = "flex";
     document.getElementById('restart-btn').style.display = "none";
+    document.getElementById('exit-btn').style.display = "none";
+
 
     loadQuestion();
     clearInterval(timerInterval);
@@ -118,6 +120,7 @@ function endGame() {
     alert("Game over! Your score is " + score);
 
     document.getElementById('restart-btn').style.display = "block";
+    document.getElementById('exit-btn').style.display = "block";
   }
 
 document.addEventListener("DOMContentLoaded", startGameLogic);
