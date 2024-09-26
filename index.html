@@ -7,28 +7,31 @@
     <title>My Website</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="game.js" defer></script>
+    <script src="login.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
   </head>
   <body>
     <!-- Login form -->
-    <div id="loginContainer">
-      <div class="login-box">
-        <h2 class="login-heading">LOGIN</h2>
-        <form>
-          <div class="input-group">
+    
+      <div id="loginContainer">
+        <h2 class="loginHeading">LOGIN</h2>
+        <form onsubmit="login(); return false;">
+          <div class="inputGroup">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
+            <span id="errorMessage" class="errorMessage"></span>
           </div>
-          <div class="input-group">
+          <div class="inputGroup">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-          </div>
-        </form>
+            <input type="password" id="password" name="password" required>        
       </div>
       <div class="buttons">
-        <button type="submit" class="login-btn" onclick="showMenu()" >LOGIN</button>
+        <button type="submit" class="loginButton">LOGIN</button>
       </div>
-    </div>
+    </form>
+      </div>
+    
     
 
     <!-- Main menu -->
@@ -132,17 +135,6 @@
       function exitGame(){
         document.getElementById("startContainer").style.display = "block";
         document.getElementById("gameContainer").style.display = "none";
-      }
-
-      function login() {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        if(username && password) {
-          window.location.href = "game-menu.html";
-        } else {
-          alert("Please fill in both fields.");
-        }
       }
 
     </script>

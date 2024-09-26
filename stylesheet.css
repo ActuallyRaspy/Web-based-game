@@ -62,7 +62,7 @@ label {
   }
 
 
-#startContainer, #scoreboardContainer, #loginContainer, #gameContainer { /* Centers divs vertically and horizontally.   */
+#startContainer, #scoreboardContainer, #loginContainer, #gameContainer, #loginContainer { /* Centers divs vertically and horizontally.   */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -72,14 +72,14 @@ label {
 
 /*---------------------Login menu---------------------*/
 
-#loginContainer {
+/* #loginContainer {
     display:block;
     background-color: #193540;
     padding: 20px;
     border: 2px solid #e4d7aa;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
+  } */
   
   .login-box {
     background-color: #e4d7aa;
@@ -125,6 +125,68 @@ label {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+
+
+
+
+  #loginContainer {
+    background-color: #e4d7aa;
+    padding: 20px;
+    border: 2px solid #193540;
+    text-align: center;
+    width: 320px;
+    margin: 0 auto;
+  }
+  
+  .loginHeading {
+    color: #193540;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    border-bottom: 1px solid #193540;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+  
+  .inputGroup {
+    margin-bottom: 10px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  label {
+    color: #193540;
+    text-align: left;
+    flex: 1;
+  }
+  
+  input {
+    width: 70%;
+    padding: 4px 10px;
+    border: 2px solid #193540;
+    background-color: #ffffff;
+    color: #000000;
+    box-sizing: border-box;
+  }
+  .loginButton {
+    background-color: #e4d7aa;
+    color: #193540;
+    padding: 10px 20px;
+    border: 2px solid #193540;
+    cursor: pointer;
+    width: 120px;
+    margin-top: 10px ;
+  }
+  .loginButton:hover {
+    background-color: #193540;
+    color: #e4d7aa;
+    border: 2px solid #e4d7aa;
   }
 
 /*---------------------Start menu---------------------*/
@@ -223,17 +285,24 @@ label {
   }
   
   .answer-btn {
-   background-color: #e4d7aa;
-   color: #193540;
-   padding: 10px;
-   border: 2px solid #193540;
-   cursor: pointer;
-   font-size: 1em;
+    
+    width: 100%;
+    text-align: center;
+  }
+
+  .answer-btn:active{
+    background-color: #193540; 
+    color: #e4d7aa;
   }
   
-  .answer-btn:hover {
-    background-color: #193540;
-    color: #e4d7aa;
+  .answer-btn.correct{
+    background-color: #4CAF50; 
+    color: white;
+  }
+
+  .answer-btn.wrong{
+    background-color: #f44336; 
+    color: white;
   }
   
   .buttons {

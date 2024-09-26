@@ -122,5 +122,3 @@ function endGame() {
     document.getElementById('restart-btn').style.display = "block";
     document.getElementById('exit-btn').style.display = "block";
   }
-
-document.addEventListener("DOMContentLoaded", startGameLogic);
