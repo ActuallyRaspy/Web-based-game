@@ -16,20 +16,20 @@
     
       <div id="loginContainer">
         <h2 class="loginHeading">LOGIN</h2>
-        <form onsubmit="login(); return false;">
+        <form id="loginForm" action="https://www.kihlman.eu/formcheck.php" method="POST" onsubmit="return customLoginHandler()">
           <div class="inputGroup">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
-            <span id="errorMessage" class="errorMessage"></span>
           </div>
           <div class="inputGroup">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>        
-      </div>
-      <div class="buttons">
-        <button type="submit" class="loginButton">LOGIN</button>
-      </div>
-    </form>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <input type="hidden" id="hashedPassword" name="password">
+          <div class="buttons">
+            <button type="submit" class="loginButton">LOGIN</button>
+          </div>
+        </form>
       </div>
     
     
