@@ -59,14 +59,12 @@ const questions = [
 function startGameLogic() {
     score = 0;
     currentQuestion = 0;
-    time = 5;
+    time = 60;
     document.getElementById('score').textContent = score;
     document.getElementById('time').textContent = time;
 
-    document.querySelector('.answer-options').style.display = "flex";
-    document.getElementById('restart-btn').style.display = "none";
-    document.getElementById('exit-btn').style.display = "none";
-
+    document.querySelector('.answerOptions').style.display = "flex";
+    document.getElementById('restartButton').style.display = "none";
 
     loadQuestion();
     clearInterval(timerInterval);
@@ -98,27 +96,40 @@ function loadQuestion() {
 }
 
 function selectAnswer(answerIndex) {
-    const answerButtons = document.querySelectorAll('.answer-btn');
-    answerButtons.forEach(btn => btn.disabled = true);
     const correctAnswer = questions[currentQuestion].correct;
+    const answerButtons = document.querySelectorAll('.answer-btn');
+    
+
+    answerButtons.forEach(btn => btn.disabled = true);
+
     if (answerIndex === correctAnswer) {
+        answerButtons[answerIndex].classList.add('correct');
+        console.log('Correct answer selected:', answerIndex);
         score++;
         document.getElementById('score').textContent = score;
+    } else {
+        answerButtons[answerIndex].classList.add('wrong');
+        answerButtons[correctAnswer].classList.add('correct'); 
+        console.log('Wrong answer selected:', answerIndex);
     }
+
     setTimeout(() => {
-    currentQuestion++;
-    loadQuestion();
-    answerButtons.forEach(btn => btn.disabled = false);
-    }, 500);
+      currentQuestion++;
+      loadQuestion();
+      answerButtons.forEach(btn => {
+        btn.classList.remove('correct', 'wrong');
+        btn.disabled = false;
+          
+      });
+  }, 1000);
 }
 
 function endGame() {
     clearInterval(timerInterval);
     document.getElementById('question').textContent = "Game Over!";
     document.getElementById('question').classList.add('game-over');
-    document.querySelector('.answer-options').style.display = "none";
+    document.querySelector('.answerOptions').style.display = "none";
     alert("Game over! Your score is " + score);
 
-    document.getElementById('restart-btn').style.display = "block";
-    document.getElementById('exit-btn').style.display = "block";
+    document.getElementById('restartButton').style.display = "block";
   }

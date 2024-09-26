@@ -277,7 +277,7 @@ label {
     margin-bottom: 20px;
   } 
   
-  .answer-options {
+  .answerOptions {
     display: flex;
     flex-direction: column;
     gap: 15px;
