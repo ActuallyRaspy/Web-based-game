@@ -56,6 +56,13 @@ const questions = [
     }
 ];
 
+function showLogin() {
+    document.getElementById("loginContainer").style.display = "block";
+    document.getElementById("startContainer").style.display = "none";
+    document.getElementById("gameContainer").style.display = "none";
+}
+
+
 function startGameLogic() {
     score = 0;
     currentQuestion = 0;
@@ -63,8 +70,8 @@ function startGameLogic() {
     document.getElementById('score').textContent = score;
     document.getElementById('time').textContent = time;
 
-    document.querySelector('.answerOptions').style.display = "flex";
-    document.getElementById('restartButton').style.display = "none";
+    document.querySelector('.answerButtonContainer').style.display = "flex";
+    document.getElementById('gameContainerButtons').style.display = "none";
 
     loadQuestion();
     clearInterval(timerInterval);
@@ -86,7 +93,7 @@ function loadQuestion() {
     if (currentQuestion < questions.length) {
         const questionObj = questions[currentQuestion];
         document.getElementById('question').textContent = questionObj.question;
-        const answerButtons = document.querySelectorAll('.answer-btn');
+        const answerButtons = document.querySelectorAll('.answerbutton');
         answerButtons.forEach((btn, index) => {
             btn.textContent = questionObj.answers[index];
         });
@@ -97,20 +104,18 @@ function loadQuestion() {
 
 function selectAnswer(answerIndex) {
     const correctAnswer = questions[currentQuestion].correct;
-    const answerButtons = document.querySelectorAll('.answer-btn');
+    const answerButtons = document.querySelectorAll('.answerbutton');
     
 
     answerButtons.forEach(btn => btn.disabled = true);
 
     if (answerIndex === correctAnswer) {
         answerButtons[answerIndex].classList.add('correct');
-        console.log('Correct answer selected:', answerIndex);
         score++;
         document.getElementById('score').textContent = score;
     } else {
         answerButtons[answerIndex].classList.add('wrong');
-        answerButtons[correctAnswer].classList.add('correct'); 
-        console.log('Wrong answer selected:', answerIndex);
+        answerButtons[correctAnswer].classList.add('correct');
     }
 
     setTimeout(() => {
@@ -128,8 +133,51 @@ function endGame() {
     clearInterval(timerInterval);
     document.getElementById('question').textContent = "Game Over!";
     document.getElementById('question').classList.add('game-over');
-    document.querySelector('.answerOptions').style.display = "none";
+    document.querySelector('.answerButtonContainer').style.display = "none";
+
+   
     alert("Game over! Your score is " + score);
 
-    document.getElementById('restartButton').style.display = "block";
+    saveScoreToCookie(score);
+    displayScoresFromCookies(); 
+
+    const buttonContainer = document.getElementById('gameContainerButtons');
+    buttonContainer.style.display = "flex";
+
+    
   }
+
+  function saveScoreToCookie(score) {
+    const previousScores = getScoresFromCookie();
+    previousScores.push(score);
+    document.cookie = "scores=" + JSON.stringify(previousScores) + ";path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT";
+  }
+
+  function getScoresFromCookie() {
+    const name = "scores=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+    for (let i = 0; i < cookieArray.length; i++) {
+        let c = cookieArray[i].trim();
+        if (c.indexOf(name) === 0) {
+            return JSON.parse(c.substring(name.length));
+        }
+    }
+    return [];
+  }
+
+  function displayScoresFromCookies() {
+    const scoreboardElement = document.getElementById('scoreboard');
+    let scores = getScoresFromCookie();
+    
+    scoreboardElement.innerHTML = "Previous Scores:<br>";
+
+    scores.forEach((score, index) => {
+        scoreboardElement.innerHTML += `Round ${index + 1}: ${score}<br>`;
+    });
+}
+
+window.onload = function() {
+    showLogin();
+    displayScoresFromCookies();
+};

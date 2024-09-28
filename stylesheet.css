@@ -12,61 +12,337 @@
     src: url(fonts//DM_Sans/DMSans-VariableFont_opsz\,wght.ttf);
 }
 
-body{
-    background-color: #101f26;
+body {
+  background-color: #101f26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'DM_Sans', sans-serif;
 }
 
-button{
-    padding: 15px 35px;
-    background-color: #e4d7aa;
-    border: 2px solid #e4d7aa;
-    border-radius: 0px;
-    cursor: pointer;
-    color: #101f26;
-    font-weight: 900;
-    transition: 0.105s;
+button {
+  background-color: #e4d7aa;
+  color: #193540;
+  border: 2px solid #193540;
+  padding: 10px 20px;
+  min-width: 100px; 
+  max-width: 150px; 
+  text-align: center;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
-button:hover{
-    background-color: #193540;
-    color:#e4d7aa;
+button:hover {
+  background-color: #193540;
+  color: #e4d7aa;
 }
 
-ul{
-    list-style-type: none;
-}
-
+/* Labels and inputs styling */
 label {
-    /*display: block;*/
-    color: #193540;
-    margin-bottom: 5px;
-    text-align: left;
-    flex: 1;
-  }
+  color: #193540;
+  text-align: left;
+  flex: 1;
+  font-size: 16px;
+}
 
-  h3 {
+input {
+  width: 70%;
+  padding: 4px 10px;
+  border: 2px solid #193540;
+  background-color: #ffffff;
+  color: #000000;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #193540;
+  outline: none;
+  box-shadow: 0 0 5px rgba(25, 53, 64, 0.3);
+}
+
+/* Error message styling */
+.errorMessage {
+  color: red;
+  font-size: 12px;
+  margin-left: 10px;
+  display: inline-block;
+  position: absolute;
+}
+
+/* Centering containers */
+#loginContainer, #startContainer, #gameContainer, #scoreboardContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Login form */
+#outerLoginContainer {
+  
+  position: relative; 
+  background-color: red; 
+  padding: 20px; 
+  border: 2px solid #e4d7aa; 
+  width: 400px; 
+  height: 300px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#loginContainer {
+  background-color: #e4d7aa;
+  padding: 25px;
+  border: 2px solid #193540; /* Mörk ram direkt runt den ljusa login-boxen */
+  width: 320px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3)
+}
+
+.loginHeading {
+  color: #193540;
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  border-bottom: 1px solid #193540;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.loginButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.loginSubmitButton {
+  background-color: #e4d7aa;
+  color: #193540;
+  padding: 12px 30px; 
+  border: 2px solid #193540;
+  margin-top: 20px;
+  width: 50%;
+}
+
+.loginSubmitButton:hover {
+  background-color: #193540;
+  color: #e4d7aa;
+ 
+}
+
+/* Input group styling */
+.inputGroup {
+  margin-bottom: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputGroup label {
+  flex: 0 0 90px; 
+  text-align: left;
+  margin-right: 10px;
+}
+
+.inputGroup input {
+  width: 100%; 
+  padding: 8px 12px;
+}
+
+/* Main menu */
+
+#startContainer {
+  background-color: #193540;
+  border: 2px solid #e4d7aa;
+  padding: 20px;
+  width: 60vw;
+  max-width: 800px;
+  min-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  
+}
+
+.startInnerContainerWhite {
+  background-color: #e4d7aa;
+  padding: 20px;
+  border: 2px solid #e4d7aa;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  width: 80%; 
+  text-align: center;
+}
+
+.startHeader {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #193540;
+}
+
+.startBody {
+  text-align: center; 
+}
+
+.startBody ul {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
+  text-align: center; 
+}
+
+.startBody li {
+  text-align: 10px; 
+}
+
+hr {
+  border: 1px solid #193540; 
+  margin-top: 10px; 
+  margin-bottom: 10px; 
+  width: 100%; 
+  margin-left: auto; 
+  margin-right: auto; 
+  
+} 
+
+.startButtonContainer {
+  display: flex;
+  justify-content: flex-end; 
+  gap: 15px; 
+  flex-wrap: wrap;
+  margin-right: 0; 
+  padding-right: 57px; 
+  padding-bottom: 0px;
+  padding-top: 15px;
+}
+
+.startButtonContainer button {
+  background-color: #e4d7aa;
+  color: #193540;
+  border: 2px solid #193540;
+  padding: 20px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+
+  
+}
+
+.startButtonContainer button:hover {
+  background-color: #193540;
+  color: #e4d7aa;
+}
+
+.startGameButton,
+.openScoreboardButton,
+.exitToLoginButton {
+  background-color: #e4d7aa;
+  color: #193540;
+}
+
+/* Game screen */
+#gameContainer {
+  display: none;
+    background-color: #193540;
+    padding: 30px;
+    border: 2px solid #e4d7aa;
+    width: 320px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     color: #e4d7aa;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e4d7aa;
-    padding-bottom: 10px;
-    font-size: 1.5em;
-  }
+}
 
-  input {
-    width: 70%;
-    padding: 4px 10px;
+.question-area {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #e4d7aa;
+}
+
+.scoreTimer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.answerButtonContainer {
+  display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answerButton {
+  padding: 10px;
+    width: 100%;
+    background-color: #e4d7aa;
+    color: #193540;
     border: 2px solid #193540;
-    background-color: #ffffff;
-    color: #000000;
-    box-sizing: border-box;
-  }
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+.answerButton:hover {
+  background-color: #193540;
+  color: #e4d7aa;
+}
 
-#startContainer, #scoreboardContainer, #loginContainer, #gameContainer, #loginContainer { /* Centers divs vertically and horizontally.   */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.answerButton.correct {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.answerButton.wrong {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Action buttons */
+#gameContainerActionButtons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Scoreboard */
+#scoreboardContainer {
+  display: none;
+  background-color: #193540;
+  padding: 15px;
+  border: 2px solid #e4d7aa;
+  width: 50%;
+  height: 35%;
+}
+
+.scoreboardInnerContainer {
+  background-color: #e4d7aa;
+  padding: 15px;
+}
+
+.scoreboardContent {
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #193540;
+}
+
+.returnToMenuButton {
+  background-color: #e4d7aa;
+  color: #193540;
+}
+
+.returnToMenuButton:hover {
+  background-color: #193540;
+  color: #e4d7aa;
 }
 
 
@@ -81,7 +357,7 @@ label {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   } */
   
-  .login-box {
+  /*.login-box {
     background-color: #e4d7aa;
     padding: 20px;
     border: 2px solid #193540;
@@ -190,7 +466,7 @@ label {
   }
 
 /*---------------------Start menu---------------------*/
-#startContainer{
+/*#startContainer{
     display:none;
     width: 50%;
     height: 25%;
@@ -199,7 +475,7 @@ label {
     border: 2px solid #e4d7aa;
     font-weight: 500;
     min-height: 230px;
-    min-width: 561px;/* Sets the minimum width. If the screen is smaller, the div and its children will not smush together*/
+    min-width: 561px;/* Sets the minimum width. If the screen is smaller, the div and its children will not smush together
 }
 
 #startContainer hr{
@@ -211,7 +487,7 @@ label {
 
 .startInnerContainer{
     position: relative; /* Centers a child to its parent's relative position. In this case .startContainer */
-    top: 50%;
+    /*top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 75%;
@@ -221,7 +497,7 @@ label {
     flex-direction: column;
     justify-content: center;
 }
-
+/*
 .startInnerContainerWhite{
     background-color: #e4d7aa;
     padding: 15px;
@@ -243,7 +519,7 @@ label {
 }
 
 /*---------------------Game---------------------*/
-#gameContainer {
+/*#gameContainer {
     display:none;
     background-color: #193540;
     padding: 30px;
@@ -332,7 +608,7 @@ label {
    }
 /*---------------------Scoreboard---------------------*/
 
-#scoreboardContainer{
+/*#scoreboardContainer{
     display:none;
     width: 50%;
     height: 35%;
@@ -341,12 +617,12 @@ label {
     border: 2px solid #e4d7aa;
     font-weight: 500;
     min-width: 482px;/* Sets the minimum width. If the screen is smaller, the div and its children will not smush together*/
-    min-height: 250px;
-}
+    /*min-height: 250px;
+}/*
 
 .scoreboardInnerContainer{
     position: relative; /* Centers a child to its parent's relative position. In this case .startContainer */
-    top: 50%;
+    /*top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 75%;
@@ -374,11 +650,12 @@ label {
     margin-top: 5px;
 }
 
-  .buttons {
-    display: flex;
-    justify-content: center;
-  }
-  
+.gameContainerButtons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
   .menu-box {
     background-color: #e4d7aa;
     padding: 20px;
@@ -420,4 +697,5 @@ label {
     text-align: center;
     font-size: 24px;
     border-bottom: 1px solid #193540;
-  }
+  }*/
+  

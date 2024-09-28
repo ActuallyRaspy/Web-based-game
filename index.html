@@ -12,27 +12,27 @@
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
   </head>
   <body>
+
     <!-- Login form -->
-    
-      <div id="loginContainer">
-        <h2 class="loginHeading">LOGIN</h2>
-        <form id="loginForm" action="https://www.kihlman.eu/formcheck.php" method="POST" onsubmit="return customLoginHandler()">
-          <div class="inputGroup">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
-          </div>
-          <div class="inputGroup">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-          </div>
-          <input type="hidden" id="hashedPassword" name="password">
-          <div class="buttons">
-            <button type="submit" class="loginButton">LOGIN</button>
-          </div>
-        </form>
+    <div id="outerLoginContainer">
+     <div id="loginContainer">
+      <h2 class="loginHeading">LOGIN</h2>
+      <form id="loginForm" action="https://www.kihlman.eu/formcheck.php" method="POST" onsubmit="return customLoginHandler()">
+        <div class="inputGroup">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="inputGroup">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <input type="hidden" id="hashedPassword" name="password">
+        <div class="loginButtonContainer">
+          <button type="submit" onclick="showMenu()" class="loginSubmitButton">LOGIN</button>
+        </div>
+      </form>
       </div>
-    
-    
+    </div>
 
     <!-- Main menu -->
     <div id="startContainer">
@@ -44,99 +44,89 @@
             <ul>
               <li>You have 10 seconds to select an answer.</li>
               <li>For every correct answer you will gain a point.</li>
-              <li>You can not exit or pause the game while it is in progress</li>
-              <li>You can not change answer once locked in.</li>
+              <li>You cannot exit or pause the game while it is in progress.</li>
+              <li>You cannot change your answer once locked in.</li>
             </ul>
           </div>
         </div>
-        <div class="startButtons">
-          <button class="startButtonsExit" onclick="showLogin()"><b>EXIT</b></button>
-          <button class="startButtonsScoreboard" onclick="showScoreboard()"><b>SCOREBOARD</b></button>
-          <button class="startButtonsStart" onclick="showGame(), startGameLogic()"><b>START</b></button>
+        <div class="startButtonContainer">
+          <button class="exitToLoginButton" onclick="showLogin()"><b>EXIT</b></button>
+          <button class="openScoreboardButton" onclick="showScoreboard()"><b>SCOREBOARD</b></button>
+          <button class="startGameButton" onclick="showGame(); startGameLogic()"><b>START</b></button>
         </div>
       </div>
     </div>
 
     <!-- Game -->
     <div id="gameContainer">
-      <div class="score-timer">
+      <div class="scoreTimer">
         <div class="scoreboard">Score: <span id="score">0</span></div>
         <div class="timer">Time: <span id="time">10</span></div>
       </div>
+
       <div class="question-area">
-        <h3 id="question">Frågan visas här</h3>
+        <h3 id="question">The question will appear here</h3>
       </div>
-      <div class="answerOptions">
-        <button class="answer-btn" onclick="selectAnswer(0)">Svar 1</button>
-        <button class="answer-btn" onclick="selectAnswer(1)">Svar 2</button>
-        <button class="answer-btn" onclick="selectAnswer(2)">Svar 3</button>
-        <button class="answer-btn" onclick="selectAnswer(3)">Svar 4</button>
+      <div class="answerButtonContainer">
+        <button class="answerButton" onclick="selectAnswer(0)">Answer 1</button>
+        <button class="answerButton" onclick="selectAnswer(1)">Answer 2</button>
+        <button class="answerButton" onclick="selectAnswer(2)">Answer 3</button>
+        <button class="answerButton" onclick="selectAnswer(3)">Answer 4</button>
       </div>
-      <button id="restartButton" class="menu-btn" style="display:none;" onclick="startGameLogic()">Spela igen</button>
-      <button id="exit-btn" class="menu-btn" style="display:none;" onclick="exitGame()">Exit</button>
+
+      <!-- Buttons for Restart and Exit -->
+      <div id="gameContainerActionButtons" style="display: none;">
+        <button id="restartGameButton" class="menuButton" onclick="startGameLogic()">Restart</button>
+        <button id="exitGameButton" class="menuButton" onclick="exitGame()">Exit</button>
+      </div>
     </div>
 
     <!-- Scoreboard -->
     <div id="scoreboardContainer">
       <div class="scoreboardInnerContainer">
         <div class="scoreboardHeader"><h2>Scoreboard</h2></div>
-
         <div class="scoreboardContent">
-          <ul>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-          </ul>
+          <div id="scoreboard">
+            <!-- Scores will be dynamically injected here via JavaScript -->
+          </div>
         </div>
-        <button onclick="returnScoreboard()">Return</button>
+        <button class="returnToMenuButton" onclick="returnScoreboard()">Return</button>
       </div>
     </div>
 
     <script>
-      // document.cookie = "username=Admin; score=2000;";
-      // document.cookie = "username=Admin; score=3000;";
-      // document.cookie = "username=Admin; score=1000;";
-      // addScore = function(){
-
-      // }
-
-      function showMenu(){
-        document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("startContainer").style.display = "block";
-        
-      }
-
-      function showScoreboard(){
+      function showScoreboard() {
         document.getElementById("scoreboardContainer").style.display = "block";
         document.getElementById("startContainer").style.display = "none";
       }
 
-      function returnScoreboard(){
+      function returnScoreboard() {
         document.getElementById("scoreboardContainer").style.display = "none";
         document.getElementById("startContainer").style.display = "block";
       }
 
-      function showLogin(){
-        document.getElementById("loginContainer").style.display = "block";
+      function showLogin() {
+        document.getElementById("outerLoginContainer").style.display = "block";
         document.getElementById("startContainer").style.display = "none";
+        document.getElementById("gameContainer").style.display = "none";
       }
 
-      function showGame(){
-        document.getElementById("gameContainer").style.display = "block";
-        document.getElementById("startContainer").style.display = "none";
-      }
-
-      function exitGame(){
+      function showMenu() {
+        document.getElementById("outerLoginContainer").style.display = "none";
         document.getElementById("startContainer").style.display = "block";
         document.getElementById("gameContainer").style.display = "none";
       }
 
+      function showGame() {
+        document.getElementById("outerLoginContainer").style.display = "none";
+        document.getElementById("startContainer").style.display = "none";
+        document.getElementById("gameContainer").style.display = "block";
+      }
+
+      function exitGame() {
+        document.getElementById("startContainer").style.display = "block";
+        document.getElementById("gameContainer").style.display = "none";
+      }
     </script>
   </body>
 </html>
