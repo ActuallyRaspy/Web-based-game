@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: DM_Sans;
-    
+      
 }
 
 @font-face { /* Imports a new font from a file.*/
@@ -37,7 +37,6 @@ ul{
 }
 
 label {
-    /*display: block;*/
     color: #193540;
     margin-bottom: 5px;
     text-align: left;
@@ -61,84 +60,24 @@ label {
     box-sizing: border-box;
   }
 
-
-#startContainer, #scoreboardContainer, #loginContainer, #gameContainer, #loginContainer { /* Centers divs vertically and horizontally.   */
+/* Centering containers */
+#startContainer, #scoreboardContainer, #loginContainer, #gameContainer { /* Centers divs vertically and horizontally.*/
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-
-/*---------------------Login menu---------------------*/
-
-/* #loginContainer {
-    display:block;
-    background-color: #193540;
-    padding: 20px;
-    border: 2px solid #e4d7aa;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  } */
-  
-  .login-box {
-    background-color: #e4d7aa;
-    padding: 20px;
-    border: 2px solid #193540;
-    text-align: center;
-    width: 320px;
-    margin: 0 auto;
-  }
-  
-  .login-heading {
-    color: #193540;
-    font-size: 24px;
-    margin-bottom: 20px;
-    margin-top: 0px;
-    border-bottom: 1px solid #193540;
-    padding-bottom: 5px;
-    text-align: center;
-  }
-
-.login-btn {
-    background-color: #e4d7aa;
-    color: #193540;
-    padding: 10px 20px;
-    border: 2px solid #193540;
-    cursor: pointer;
-    width: 120px;
-    margin-top: 10px ;
-  }
-  
-  .login-btn:hover {
-    background-color: #193540;
-    color: #e4d7aa;
-    border: 2px solid #e4d7aa;
-  }
-
-  .input-group {
-    margin-bottom: 10px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-
-
-
-  #loginContainer {
-    background-color: #e4d7aa;
-    padding: 20px;
-    border: 2px solid #193540;
-    text-align: center;
-    width: 320px;
-    margin: 0 auto;
-  }
-  
+/* Login menu */
+#loginContainer {
+  background-color: #e4d7aa;
+  padding: 20px;
+  border: 2px solid #193540;
+  text-align: center;
+  width: 320px;
+  margin: 0 auto;
+}
+ 
   .loginHeading {
     color: #193540;
     font-size: 24px;
@@ -147,6 +86,22 @@ label {
     border-bottom: 1px solid #193540;
     padding-bottom: 5px;
     text-align: center;
+  }
+
+  .loginButton {
+    background-color: #e4d7aa;
+    color: #193540;
+    padding: 10px 20px;
+    border: 2px solid #193540;
+    cursor: pointer;
+    width: 120px;
+    margin-top: 10px ;
+  }
+
+  .loginButton:hover {
+    background-color: #193540;
+    color: #e4d7aa;
+    border: 2px solid #e4d7aa;
   }
   
   .inputGroup {
@@ -160,36 +115,14 @@ label {
     justify-content: space-between;
   }
   
-  label {
-    color: #193540;
-    text-align: left;
-    flex: 1;
-  }
-  
-  input {
-    width: 70%;
-    padding: 4px 10px;
-    border: 2px solid #193540;
-    background-color: #ffffff;
-    color: #000000;
-    box-sizing: border-box;
-  }
-  .loginButton {
-    background-color: #e4d7aa;
-    color: #193540;
-    padding: 10px 20px;
-    border: 2px solid #193540;
-    cursor: pointer;
-    width: 120px;
-    margin-top: 10px ;
-  }
-  .loginButton:hover {
-    background-color: #193540;
-    color: #e4d7aa;
-    border: 2px solid #e4d7aa;
+  .loginButtonContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
   }
 
-/*---------------------Start menu---------------------*/
+
+/* Start menu */
 #startContainer{
     display:none;
     width: 50%;
@@ -242,7 +175,7 @@ label {
     margin-left: 20px;
 }
 
-/*---------------------Game---------------------*/
+/* Game */
 #gameContainer {
     display:none;
     background-color: #193540;
@@ -305,21 +238,6 @@ label {
     color: white;
   }
   
-  .buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    border: 2px solid #193540;
-    background-color: #e4d7aa;
-    color: #193540;
-    cursor: pointer;
-    font-size: center 16px;
-  }
-  
    .game-over {
     background-color: #193540;
     color: #e4d7aa;
@@ -330,8 +248,9 @@ label {
     border-radius: 5px;
     margin-top: 20px;
    }
-/*---------------------Scoreboard---------------------*/
 
+
+/* Scoreboard */
 #scoreboardContainer{
     display:none;
     width: 50%;
@@ -373,12 +292,7 @@ label {
     border-bottom: 1px solid #101f26;
     margin-top: 5px;
 }
-
-  .buttons {
-    display: flex;
-    justify-content: center;
-  }
-  
+ 
   .menu-box {
     background-color: #e4d7aa;
     padding: 20px;
@@ -421,3 +335,13 @@ label {
     font-size: 24px;
     border-bottom: 1px solid #193540;
   }
+
+
+
+
+
+
+
+
+  
+  

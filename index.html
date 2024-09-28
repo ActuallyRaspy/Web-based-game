@@ -26,7 +26,7 @@
             <input type="password" id="password" name="password" required>
           </div>
           <input type="hidden" id="hashedPassword" name="password">
-          <div class="buttons">
+          <div class="loginButtonContainer">
             <button type="submit" class="loginButton">LOGIN</button>
           </div>
         </form>
@@ -72,7 +72,7 @@
         <button class="answer-btn" onclick="selectAnswer(2)">Svar 3</button>
         <button class="answer-btn" onclick="selectAnswer(3)">Svar 4</button>
       </div>
-      <button id="restartButton" class="menu-btn" style="display:none;" onclick="startGameLogic()">Spela igen</button>
+      <button id="restartButton" class="menu-btn" onclick="startGameLogic()">Spela igen</button>
       <button id="exit-btn" class="menu-btn"  onclick="exitGame()">Exit</button>
     </div>
 
@@ -117,6 +117,8 @@
       function showLogin(){
         document.getElementById("loginContainer").style.display = "block";
         document.getElementById("startContainer").style.display = "none";
+        document.getElementById("gameContainer").style.display = "none";
+        document.getElementById("scoreboardContainer").style.display = "none";
       }
 
       function showGame(){

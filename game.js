@@ -59,14 +59,13 @@ const questions = [
 function startGameLogic() {
     score = 0;
     currentQuestion = 0;
-    time = 60;
+    time = 30;
     document.getElementById('score').textContent = score;
     document.getElementById('time').textContent = time;
 
-    document.cookie = "score=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
     document.querySelector('.answerOptions').style.display = "flex";
-    document.getElementById('restartButton').style.display = "none";
+    document.getElementById('restartButton').style.display = "block";
+    document.getElementById('exit-btn').style.display = "block";
 
     loadQuestion();
     clearInterval(timerInterval);
