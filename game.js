@@ -63,6 +63,8 @@ function startGameLogic() {
     document.getElementById('score').textContent = score;
     document.getElementById('time').textContent = time;
 
+    document.cookie = "score=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
     document.querySelector('.answerOptions').style.display = "flex";
     document.getElementById('restartButton').style.display = "none";
 
@@ -131,5 +133,25 @@ function endGame() {
     document.querySelector('.answerOptions').style.display = "none";
     alert("Game over! Your score is " + score);
 
+    let scores = JSON.parse(localStorage.getItem('scores')) || [];
+
+    scores.push(score);
+
+    localStorage.setItem('scores', JSON.stringify(scores));
+
     document.getElementById('restartButton').style.display = "block";
+    document.getElementById('exit-btn').style.display = "block";
   }
+
+function showScoreboard() {
+    document.getElementById("scoreboardContainer").style.display = "block";
+    document.getElementById("startContainer").style.display = "none";
+
+    let scores = JSON.parse(localStorage.getItem('scores')) || [];
+
+    scores.sort((a, b) => b - a);
+    let topScores = scores.slice(0, 5);
+
+    let scoreListHTML = topScores.map(score => `<li>Your score: ${score} points</li>`).join('');
+    document.querySelector('.scoreboardContent ul').innerHTML = scoreListHTML;
+}
