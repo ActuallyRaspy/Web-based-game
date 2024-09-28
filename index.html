@@ -73,7 +73,7 @@
         <button class="answer-btn" onclick="selectAnswer(3)">Svar 4</button>
       </div>
       <button id="restartButton" class="menu-btn" style="display:none;" onclick="startGameLogic()">Spela igen</button>
-      <button id="exit-btn" class="menu-btn" style="display:none;" onclick="exitGame()">Exit</button>
+      <button id="exit-btn" class="menu-btn"  onclick="exitGame()">Exit</button>
     </div>
 
     <!-- Scoreboard -->
@@ -83,15 +83,7 @@
 
         <div class="scoreboardContent">
           <ul>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
-            <li>Admin: 2000 points</li>
+             <!-- Scores will be dynamically inserted here -->
           </ul>
         </div>
         <button onclick="returnScoreboard()">Return</button>
@@ -130,6 +122,7 @@
       function showGame(){
         document.getElementById("gameContainer").style.display = "block";
         document.getElementById("startContainer").style.display = "none";
+        document.getElementById("exit-btn").style.display = "block";
       }
 
       function exitGame(){
