@@ -78,68 +78,64 @@ label {
   margin: 0 auto;
 }
  
-  .loginHeading {
-    color: #193540;
-    font-size: 24px;
-    margin-bottom: 20px;
-    margin-top: 0px;
-    border-bottom: 1px solid #193540;
-    padding-bottom: 5px;
-    text-align: center;
-  }
-
-  .loginButton {
-    background-color: #e4d7aa;
-    color: #193540;
-    padding: 10px 20px;
-    border: 2px solid #193540;
-    cursor: pointer;
-    width: 120px;
-    margin-top: 10px ;
-  }
-
-  .loginButton:hover {
-    background-color: #193540;
-    color: #e4d7aa;
-    border: 2px solid #e4d7aa;
-  }
+.loginHeading {
   
-  .inputGroup {
-    margin-bottom: 10px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .loginButtonContainer {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
+  margin-bottom: 20px;
+  margin-top: 0px;
+  border-bottom: 1px solid #193540;
+  padding-bottom: 5px;
+
+}
+
+.loginButton {
+  background-color: #e4d7aa;
+  color: #193540;
+  padding: 10px 20px;
+  border: 2px solid #193540;
+}
+
+.loginButton:hover {
+  background-color: #193540;
+  color: #e4d7aa;
+  border: 2px solid #e4d7aa;
+}
+
+.inputGroup {
+  margin-bottom: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loginButtonContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
 
 
 /* Start menu */
 #startContainer{
-    display:none;
-    width: 50%;
-    height: 25%;
-    background-color: #193540;
-    padding: 15px;
-    border: 2px solid #e4d7aa;
-    font-weight: 500;
-    min-height: 230px;
-    min-width: 561px;/* Sets the minimum width. If the screen is smaller, the div and its children will not smush together*/
+  display:none;
+  width: 50%;
+  height: 25%;
+  background-color: #193540;
+  padding: 15px;
+  border: 2px solid #e4d7aa;
+  font-weight: 500;
+  min-height: 230px;
+  min-width: 561px;/* Sets the minimum width. If the screen is smaller, the div and its children will not smush together*/
 }
 
 #startContainer hr{
-    background-color:#193540;
-    border: 1px solid #101f26;
-    border-radius: 100%;
-    margin-bottom: 10px;
+  background-color:#193540;
+  border: 1px solid #101f26;
+  border-radius: 100%;
+  margin-bottom: 10px;
 }
 
 .startInnerContainer{
@@ -187,7 +183,7 @@ label {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
   
-  .score-timer {
+  .scoreTimer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -206,7 +202,7 @@ label {
     color: #e4d7aa;
   }
   
-  .question-area {
+  .questionArea {
     margin-bottom: 20px;
   } 
   
@@ -217,28 +213,28 @@ label {
     
   }
   
-  .answer-btn {
+  .answerButton {
     
     width: 100%;
     text-align: center;
   }
 
-  .answer-btn:active{
+  .answerButton:active{
     background-color: #193540; 
     color: #e4d7aa;
   }
   
-  .answer-btn.correct{
+  .answerButton.correct{
     background-color: #4CAF50; 
     color: white;
   }
 
-  .answer-btn.wrong{
+  .answerButton.wrong{
     background-color: #f44336; 
     color: white;
   }
   
-   .game-over {
+   .gameOver {
     background-color: #193540;
     color: #e4d7aa;
     padding: 20px;
@@ -292,39 +288,41 @@ label {
     border-bottom: 1px solid #101f26;
     margin-top: 5px;
 }
+
+.menuButton {
+  background-color: #e4d7aa;
+  color: #193540;
+  padding: 10px 20px;
+  border: 2px solid #193540;
+  cursor: pointer;
+  width: 120px;
+  margin: 5px auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.menuButton:hover {
+  background-color: #193540;
+  color: #e4d7aa;
+  border: 2px solid #e4d7aa;
+}
  
-  .menu-box {
+  /* .menuBox {
     background-color: #e4d7aa;
     padding: 20px;
     border: 2px solid #193540;
     text-align: center;
     width: 320px;
     margin: 0 auto;
-  }
+  } */
   
-  .menu-options {
+  /* .menu-options {
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
   
-  .menu-btn {
-    background-color: #e4d7aa;
-    color: #193540;
-    padding: 10px 20px;
-    border: 2px solid #193540;
-    cursor: pointer;
-    width: 120px;
-    margin: 5px auto;
-    box-sizing: border-box;
-    text-align: center;
-  }
   
-  .menu-btn:hover {
-    background-color: #193540;
-    color: #e4d7aa;
-    border: 2px solid #e4d7aa;
-  }
   
   .menu-heading {
     color: #193540;
@@ -334,7 +332,7 @@ label {
     text-align: center;
     font-size: 24px;
     border-bottom: 1px solid #193540;
-  }
+  } */
 
 
 
