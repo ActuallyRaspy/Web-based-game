@@ -127,20 +127,23 @@ function selectAnswer(answerIndex) {
 
 function endGame() {
     clearInterval(timerInterval);
-    document.getElementById('question').textContent = "Game Over!";
-    document.getElementById('question').classList.add('gameOver');
+  
+    const questionArea = document.getElementById('question');
+    questionArea.textContent = "Game Over! Your final score is " + score;
+    questionArea.classList.add('gameOver'); 
+    
+
     document.querySelector('.answerOptions').style.display = "none";
-    alert("Game over! Your score is " + score);
-
-    let scores = JSON.parse(localStorage.getItem('scores')) || [];
-
-    scores.push(score);
-
-    localStorage.setItem('scores', JSON.stringify(scores));
-
+    
+    
     document.getElementById('restartButton').style.display = "block";
     document.getElementById('exit-btn').style.display = "block";
-  }
+
+   
+    let scores = JSON.parse(localStorage.getItem('scores')) || [];
+    scores.push(score);
+    localStorage.setItem('scores', JSON.stringify(scores));
+}
 
 function showScoreboard() {
     document.getElementById("scoreboardContainer").style.display = "block";
