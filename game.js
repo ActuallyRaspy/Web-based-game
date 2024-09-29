@@ -87,7 +87,7 @@ function loadQuestion() {
     if (currentQuestion < questions.length) {
         const questionObj = questions[currentQuestion];
         document.getElementById('question').textContent = questionObj.question;
-        const answerButtons = document.querySelectorAll('.answer-btn');
+        const answerButtons = document.querySelectorAll('.answerButton');
         answerButtons.forEach((btn, index) => {
             btn.textContent = questionObj.answers[index];
         });
@@ -98,7 +98,7 @@ function loadQuestion() {
 
 function selectAnswer(answerIndex) {
     const correctAnswer = questions[currentQuestion].correct;
-    const answerButtons = document.querySelectorAll('.answer-btn');
+    const answerButtons = document.querySelectorAll('.answerButton');
     
 
     answerButtons.forEach(btn => btn.disabled = true);
@@ -127,20 +127,23 @@ function selectAnswer(answerIndex) {
 
 function endGame() {
     clearInterval(timerInterval);
-    document.getElementById('question').textContent = "Game Over!";
-    document.getElementById('question').classList.add('game-over');
+  
+    const questionArea = document.getElementById('question');
+    questionArea.textContent = "Game Over! Your final score is " + score;
+    questionArea.classList.add('gameOver'); 
+    
+
     document.querySelector('.answerOptions').style.display = "none";
-    alert("Game over! Your score is " + score);
-
-    let scores = JSON.parse(localStorage.getItem('scores')) || [];
-
-    scores.push(score);
-
-    localStorage.setItem('scores', JSON.stringify(scores));
-
+    
+    
     document.getElementById('restartButton').style.display = "block";
     document.getElementById('exit-btn').style.display = "block";
-  }
+
+   
+    let scores = JSON.parse(localStorage.getItem('scores')) || [];
+    scores.push(score);
+    localStorage.setItem('scores', JSON.stringify(scores));
+}
 
 function showScoreboard() {
     document.getElementById("scoreboardContainer").style.display = "block";
