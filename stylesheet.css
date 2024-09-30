@@ -179,8 +179,7 @@ label {
     border: 2px solid #e4d7aa;
     text-align: center;
     width: 400px;
-    margin: 0 auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
   }
   
   .scoreTimer {
@@ -300,7 +299,7 @@ label {
   background-color: #e4d7aa;
   color: #193540;
   padding: 10px 20px;
-  border: 2px solid #193540;
+  border: 2px solid #e4d7aa;
   cursor: pointer;
   width: 120px;
   margin: 5px auto;

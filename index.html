@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
+    <title>Html Quiz Game</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <script src="game.js" defer></script>
-    <script src="login.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="img/icon.png" type="image/x-icon">
   </head>
   <body>
     <!-- Login form -->
-    
       <div id="loginContainer">
         <h2 class="loginHeading">LOGIN</h2>
         <form id="loginForm" action="https://www.kihlman.eu/formcheck.php" method="POST" onsubmit="return customLoginHandler()">
@@ -31,8 +27,6 @@
           </div>
         </form>
       </div>
-    
-    
 
     <!-- Main menu -->
     <div id="startContainer">
@@ -44,7 +38,7 @@
             <ul>
               <li>You have 30 seconds to complete the game.</li>
               <li>For every correct answer you will gain a point.</li>
-              You can not pause the game while it is in progress, but you can exit or restart.</li>
+              <li>You can not pause the game while it is in progress, but you can exit or restart.</li>
               <li>You can not change answer once locked in.</li>
             </ul>
           </div>
@@ -82,7 +76,6 @@
     <div id="scoreboardContainer">
       <div class="scoreboardInnerContainer">
         <div class="scoreboardHeader"><h2>Scoreboard</h2></div>
-
         <div class="scoreboardContent">
           <ul>
              <!-- Scores will be dynamically inserted here -->
@@ -92,48 +85,9 @@
       </div>
     </div>
 
-    <script>
-      // document.cookie = "username=Admin; score=2000;";
-      // document.cookie = "username=Admin; score=3000;";
-      // document.cookie = "username=Admin; score=1000;";
-      // addScore = function(){
-
-      // }
-
-      function showMenu(){
-        document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("startContainer").style.display = "block";
-        
-      }
-
-      function showScoreboard(){
-        document.getElementById("scoreboardContainer").style.display = "block";
-        document.getElementById("startContainer").style.display = "none";
-      }
-
-      function returnScoreboard(){
-        document.getElementById("scoreboardContainer").style.display = "none";
-        document.getElementById("startContainer").style.display = "block";
-      }
-
-      function showLogin(){
-        document.getElementById("loginContainer").style.display = "block";
-        document.getElementById("startContainer").style.display = "none";
-        document.getElementById("gameContainer").style.display = "none";
-        document.getElementById("scoreboardContainer").style.display = "none";
-      }
-
-      function showGame(){
-        document.getElementById("gameContainer").style.display = "block";
-        document.getElementById("startContainer").style.display = "none";
-        document.getElementById("exit-btn").style.display = "block";
-      }
-
-      function exitGame(){
-        document.getElementById("startContainer").style.display = "block";
-        document.getElementById("gameContainer").style.display = "none";
-      }
-
-    </script>
+    <script src="game.js" defer></script>
+    <script src="login.js" defer></script>
+    <script src="navigation.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   </body>
 </html>
